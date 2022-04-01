@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jill's Counter</title>
+    <link rel="stylesheet" href="./jills-counter.css">
+    <link rel="canonical" href="https://www.duncansanderson.co.uk/jills-counter/">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+    <link rel="manifest" href="./images/site.webmanifest">
+    <link rel="mask-icon" href="./images/safari-pinned-tab.svg" color="#1b1b1d">
+    <link rel="shortcut icon" href="./images/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="./images/browserconfig.xml">
+    <meta name="theme-color" content="#1b1b1d">
+</head>
+
+<body>
+    <div class="counter">
+        <label class="button-toggle">
+            <span class="button-toggle__light-label">Light</span>
+            <span class="button-toggle__dark-label">Dark</span>
+            <input type="checkbox" name="toggle" id="toggle">
+            <span class="button-toggle__slider"></span>
+        </label>
+        <h1>Jill's Counter</h1>
+        <div class="counter__progress-bar">
+            <div class="counter__progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+            </div>
+        </div>
+        <div class="counter__value" aria-live="polite">0</div>
+        <div class="counter__buttons">
+            <button class="counter__button" aria-label="Start the counter" id="counter-start">Start</button>
+            <button class="counter__button" aria-label="Stop the counter" id="counter-stop">Stop</button>
+            <button class="counter__button" aria-label="Reset the counter" id="counter-reset">Reset</button>
+        </div>
+    </div>
+    <script src="./jills-counter.js"></script>
+    <script>
+        if (navigator.serviceWorker) {
+            navigator.serviceWorker.register(
+                './sw.js',
+                { scope: './jills-counter/' }
+            )
+        }
+    </script>
+</body>
+
+</html>
